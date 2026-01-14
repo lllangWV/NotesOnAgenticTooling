@@ -179,7 +179,7 @@ files.txt
 # Project-specific
 update_package.md
 /data/
-/notes/
+# /notes/  # Removed to track research notes
 /my_tests/
 /papers/
 /media/
