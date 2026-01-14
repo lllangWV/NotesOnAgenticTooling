@@ -20,6 +20,8 @@ This directory contains comprehensive research notes on AI-powered coding assist
 | [performance-benchmarks.md](performance-benchmarks.md) | SWE-bench results, token costs, latency, refactoring capabilities |
 | [enterprise-adoption.md](enterprise-adoption.md) | Compliance, deployment models, team adoption, API key management |
 | [context-optimization.md](context-optimization.md) | Indexing vs on-demand context, CLAUDE.md best practices, token optimization |
+| [mcp-ecosystem.md](mcp-ecosystem.md) | MCP servers, custom development, security, protocol comparisons |
+| [workflow-integration.md](workflow-integration.md) | CI/CD integration, multi-agent coordination, regulated industries |
 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) | Tracked open questions for future research |
 
 ## Key Findings
@@ -67,6 +69,22 @@ Based on comprehensive benchmark analysis (see [performance-benchmarks.md](perfo
 - **18x improvement** in AI coding capability from 2023 to 2025
 
 ## Changes
+
+### Iteration 7 (2026-01-14)
+- Added [mcp-ecosystem.md](mcp-ecosystem.md): Comprehensive MCP ecosystem guide covering:
+  - Most valuable MCP servers by category (version control, database, cloud, testing)
+  - Building custom MCP servers with 10 official SDKs and code examples
+  - Security considerations including CVE-2025-6514 and breach timeline
+  - Protocol comparison: MCP vs A2A vs ANP (complementary standards)
+  - Enterprise deployment best practices with OAuth 2.1
+- Added [workflow-integration.md](workflow-integration.md): Development workflow integration guide covering:
+  - CI/CD integration patterns for GitHub Actions, Jenkins, GitLab, CircleCI
+  - Tool-specific guides for Claude Code, GitHub Copilot, and Cursor
+  - 8 multi-agent coordination patterns from Google ADK
+  - Task decomposition best practices (~58% faster completion)
+  - Regulated industry requirements (HIPAA, SOC 2, FDA, FINRA, ISO 42001)
+  - AI-BOM and code provenance tracking
+- Updated [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md): Marked MCP Ecosystem and Workflow Integration questions as completed
 
 ### Iteration 6 (2026-01-14)
 - Enhanced [context-optimization.md](context-optimization.md): Major update with detailed technical specifications:

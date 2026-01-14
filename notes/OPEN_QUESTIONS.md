@@ -2,6 +2,35 @@
 
 Last updated: 2026-01-14
 
+## Completed Questions (Iteration 7)
+
+### MCP Ecosystem
+- [x] What are the most valuable MCP servers for coding workflows?
+- [x] How to build custom MCP servers for proprietary systems?
+- [x] What security considerations exist for MCP server deployment?
+- [x] How does MCP interact with other protocols (A2A, ACP)?
+
+See [mcp-ecosystem.md](mcp-ecosystem.md) for comprehensive findings including:
+- 10,000+ MCP servers in official registry, categorized by use case
+- 10 official SDKs (TypeScript, Python, Go, Kotlin, Swift, Java, C#, Ruby, Rust, PHP)
+- Security vulnerabilities timeline (CVE-2025-6514, WhatsApp, GitHub incidents)
+- Protocol comparison: MCP vs A2A vs ANP (complementary, not competing)
+- Enterprise deployment best practices with OAuth 2.1
+
+### Workflow Integration
+- [x] Best practices for CI/CD integration with AI agents
+- [x] How to integrate AI coding assistants with code review workflows?
+- [x] What are effective multi-agent coordination patterns?
+- [x] How to handle AI-generated code in regulated industries?
+
+See [workflow-integration.md](workflow-integration.md) for comprehensive findings including:
+- CI/CD integration patterns for GitHub Actions, Jenkins, GitLab, CircleCI
+- Claude Code, GitHub Copilot, and Cursor CI/CD setup guides
+- 8 multi-agent coordination patterns (Google ADK)
+- Task decomposition best practices (~58% faster completion)
+- Regulated industry requirements (HIPAA, SOC 2, FDA, FINRA)
+- AI-BOM and code provenance tracking
+
 ## Completed Questions (Iteration 6)
 
 ### Context Window Optimization
@@ -80,21 +109,7 @@ See [performance-benchmarks.md](performance-benchmarks.md) for comprehensive fin
 - [x] What customization/extensibility options exist?
 - [x] How do tools integrate with development workflows (git, CI/CD)?
 
-## Priority 1: Integration Questions
-
-### MCP Ecosystem
-- [ ] What are the most valuable MCP servers for coding workflows?
-- [ ] How to build custom MCP servers for proprietary systems?
-- [ ] What security considerations exist for MCP server deployment?
-- [ ] How does MCP interact with other protocols (A2A, ACP)?
-
-### Workflow Integration
-- [ ] Best practices for CI/CD integration with AI agents
-- [ ] How to integrate AI coding assistants with code review workflows?
-- [ ] What are effective multi-agent coordination patterns?
-- [ ] How to handle AI-generated code in regulated industries?
-
-## Priority 2: Future Trends
+## Priority 1: Future Trends
 
 ### Emerging Capabilities
 - [ ] What's the roadmap for multi-modal context (images, diagrams)?
