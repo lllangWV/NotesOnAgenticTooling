@@ -1,92 +1,35 @@
-# Research-to-Specs Loop
+# Research Loop
 
-Generate cleanroom black-box specifications from external documentation.
+The goal is to perform research on the following topic
 
-## Configuration
+The research topic is to investigate coding assistant tools like claude code, cursor, google antigravity, github copilot, opencode. I want to research what make these tools unique. What are their common features, for instance cli based tools have subagents, skills, slash commands, hooks, etc. What are common themes amongst the tools. What are their pricing plans. 
 
-Defaults:
-- Specs directory: `specs/`
-- Index file: `specs/README.md`
+
+Do not be scared to go into research about why features are so important and explain them in detail
 
 ## Phase 1: Gather Context
 
-1a. Read existing specs:
-    - Read `specs/README.md` if it exists
-    - Scan `specs/` directory for existing spec files
+1a. Study the notes directory:
+    - Read `notes/README.md`
+    - Scan `notes/` directory for existing spec files and use sub agents to study them
     - Identify what's already documented vs gaps
 
-1b. Determine scope:
-    - Is this a new topic or expanding existing coverage?
-    - What specific aspects should the research focus on?
+## Phase 2: 
+
+1b. Look at `notes/OPEN_QUESTIONS.md`
+   - Grab the highest priority open question. 
 
 ## Phase 2: Web Research
 
-Launch parallel **web-search-researcher** agents to gather comprehensive documentation.
+Launch parallel **web-search-researcher** agents to gather information about the open question
 
-### 2a. Core Concepts
-Spawn a **web-search-researcher** agent:
-```
-Research: [TOPIC] - core concepts and terminology
-
-Find official documentation covering:
-- Fundamental concepts and definitions
-- Key terminology and vocabulary
-- High-level architecture/structure
-
-Return: Summarized findings with source URLs
-```
-
-### 2b. API/Interface Documentation
-Spawn a **web-search-researcher** agent:
-```
-Research: [TOPIC] - API and interface documentation
-
-Find documentation covering:
-- Available operations/methods/endpoints
-- Input parameters and formats
-- Output/response formats
-- Error handling and status codes
-
-Return: Summarized findings with source URLs
-```
-
-### 2c. Examples & Use Cases
-Spawn a **web-search-researcher** agent:
-```
-Research: [TOPIC] - examples and use cases
-
-Find documentation covering:
-- Common usage patterns
-- Code examples and tutorials
-- Best practices
-- Real-world scenarios
-
-Return: Summarized findings with source URLs
-```
-
-### 2d. Edge Cases & Limitations
-Spawn a **web-search-researcher** agent:
-```
-Research: [TOPIC] - limitations and edge cases
-
-Find documentation covering:
-- Known limitations and constraints
-- Rate limits, quotas, restrictions
-- Edge cases and gotchas
-- Compatibility considerations
-
-Return: Summarized findings with source URLs
-```
-
-## Phase 3: Synthesize into Specs
+## Phase 3: Synthesize into notes
 
 Wait for all agents to complete, then create/update spec files.
 
-**Monitor context usage throughout** - check periodically.
-
 ### 3a. Determine file structure
-- Single topic → `specs/<topic-slug>.md`
-- Complex topic → multiple files: `specs/<topic>/<subtopic>.md`
+- Single topic → `notes/<topic-slug>.md`
+- Complex topic → multiple files: `notes/<topic>/<subtopic>.md`
 
 ### 3b. Write spec file(s)
 
@@ -96,53 +39,33 @@ Use this format for each spec file:
 # <Topic> Specification
 
 Last updated: [DATE] by RS Loop
-Sources:
-- [Source 1 URL]
-- [Source 2 URL]
-- ...
+
 
 ## Overview
-Brief description of the feature/component being specified.
+Brief description of the concept
 
-## Terminology
-| Term | Definition |
-|------|------------|
-| ... | ... |
 
-## Behavior
+{Fill in with additional information on the topic. Can you whatever layout to best explain the concept/topic.}
 
-### Inputs
-Describe all inputs, parameters, and their formats.
-
-### Outputs
-Describe all outputs, responses, and their formats.
-
-### Operations
-Describe available operations/actions and their behavior.
-
-## Constraints & Limitations
-- Known limits
-- Restrictions
-- Requirements
-
-## Examples
-Concrete examples demonstrating typical usage.
 
 ## Open Questions
 - [ ] Items needing further research
 - [ ] Unclear aspects to investigate
+
+
+Sources:
+- [Source 1 URL]
+- [Source 2 URL]
+- ...
 ```
 
-### 3c. Guidelines for cleanroom specs
-- **Black-box only**: Describe external behavior, not internal implementation
-- **Observable behavior**: What can be seen from outside the system
-- **No implementation details**: Avoid mentioning how things work internally
+### 3c. Guidelines for cleanroom notes
 - **Cite sources**: Always include documentation URLs
-- **Be precise**: Use exact terminology from official docs
+- **Be precise**: Use exact terminology
 
-## Phase 4: Update specs/README.md
+## Phase 4: Update notes/README.md
 
-Update (or create) `specs/README.md` as the index:
+Update (or create) `notes/README.md` as the index:
 
 ```markdown
 # Project Specifications
@@ -160,68 +83,38 @@ Last updated: [DATE]
 | [topic-2.md](topic-2.md) | Brief description |
 | ... | ... |
 
-## Research Goals
-- [x] Completed topic 1
-- [x] Completed topic 2
-- [ ] Pending: topic 3
-- [ ] Pending: topic 4
+## Changes:
 
-## Sources
-Primary documentation sources used:
-- [Official Docs](url)
-- [API Reference](url)
+### Iteration: N
+- Added new spec {spec_name }: {brief reason}
+- Updates spec {spec_name}: {brief reason}
+
+{Continue the change iterations}
 ```
 
-## Phase 5: Exit
+## Phase 5: Wrapping up
 
-### Exit: Research Complete
-
-If you finish researching and writing specs:
-1. Create specs directory if needed:
+If you finish researching and writing notes:
+1. Create notes directory if needed:
    ```bash
-   mkdir -p specs
+   mkdir -p notes
    ```
-2. Run `/ralph_commit` to commit the specs
+2. Run `/ralph_commit` to commit the notes
 3. Output summary:
    - What spec files were created/updated
    - Key findings from research
    - Any open questions for follow-up
 
-### Exit: Context Limit (60%)
-
-If context reaches 60% before completion:
-1. STOP researching/writing immediately
-2. Add a handoff section to `specs/README.md`:
-   ```markdown
-   ## RS Loop Handoff
-
-   **Topic:** [Current research topic]
-   **Status:** Partial research - next run will continue
-
-   **Research completed:**
-   - [x] Core concepts & terminology
-   - [x] API/interface documentation
-   - [ ] Examples & use cases (incomplete)
-   - [ ] Edge cases & limitations (not started)
-
-   **Findings so far:**
-   - Summary of research gathered
-   - Source URLs collected
-   - Sections already written to spec files
-   ```
-3. Run `/ralph_commit` to commit partial progress
-4. Exit - next loop iteration picks up from handoff
-
 ## Important Guidelines
 
-1. **Cleanroom principle**: Never look at existing implementations while writing specs. Only use external documentation.
+1. **Cite everything**: Every claim should trace back to a source URL.
 
-2. **Cite everything**: Every claim should trace back to a source URL.
+2. **Incremental refinement**: Each run should improve existing notes, not overwrite them blindly.
 
-3. **Incremental refinement**: Each run should improve existing specs, not overwrite them blindly.
+3. **Flag uncertainty**: Use "Open Questions" section for anything unclear.
 
-4. **Flag uncertainty**: Use "Open Questions" section for anything unclear.
+4. ALWAYS KEEP @notes/OPEN_QUESTION.md up to do date with your learnings using a subagent. Especially after wrapping up/finishing your turn.
 
-5. **Keep README.md current**: Always update the index after modifying specs.
+5. ALWAYS KEEP @notes/README.md up to do date with your learnings using a subagent. Especially after wrapping up/finishing your turn.
 
-6. **Consistent terminology**: Use the same terms throughout all spec files.
+6. If you find inconsistentcies in the notes/* then use the oracle and then update the notes. 

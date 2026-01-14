@@ -20,7 +20,7 @@ echo "  Press Ctrl+C to stop"
 echo ""
 
 while true; do
-    (cat "$SCRIPT_DIR/RS_LOOP_PROMPT.md"; echo -e "\n\nResearch goal: $TOPIC") | claude -p \
+    cat "$SCRIPT_DIR/RS_LOOP_PROMPT.md" | claude -p \
         --dangerously-skip-permissions \
         --output-format=stream-json \
         --model "$MODEL" \
