@@ -99,30 +99,74 @@ This represents a fundamental shift from passive suggestion to autonomous execut
 
 ### 5. Model Context Protocol (MCP)
 
-**Definition:** Open standard for connecting AI systems to external tools and data sources.
+**Definition:** Open standard for connecting AI systems to external tools and data sources. Now governed by the Linux Foundation's Agentic AI Foundation (AAIF).
 
 **Timeline:**
 - November 2024: Anthropic introduces MCP
-- March 2025: OpenAI adopts MCP
+- March 2025: OpenAI adopts MCP across ChatGPT, Agents SDK, Responses API
 - May 2025: Microsoft/GitHub join steering committee
-- December 2025: Donated to Linux Foundation
+- June 2025: Protocol version 2025-06-18 adds OAuth 2.1 authorization
+- September 2025: MCP Registry launched for server discovery
+- November 2025: Protocol version 2025-11-25 adds Tasks abstraction
+- December 2025: Donated to Linux Foundation's AAIF
 
-**Adoption Metrics (2025):**
-- 8 million+ MCP server downloads
-- 97 million monthly SDK downloads
-- 5,800+ MCP servers
+**Governance (AAIF):**
+- Co-founders: Anthropic, Block, OpenAI
+- Supporting Members: Google, Microsoft, AWS, Cloudflare, Bloomberg
+- Founding Projects: MCP (Anthropic), goose (Block), AGENTS.md (OpenAI)
+
+**Adoption Metrics (January 2026):**
+- 97 million+ monthly SDK downloads
+- 10,000+ public MCP servers
 - 300+ MCP clients
+- 75+ Claude connectors
+- Growth: ~100K downloads (Nov 2024) → 8M+ (April 2025)
+
+**Platform Support:**
+| Platform | MCP Status |
+|----------|-----------|
+| ChatGPT | Full support via Developer Mode |
+| Claude Desktop | Native support |
+| Visual Studio | GA (General Availability) |
+| VS Code | Via GitHub Copilot Agent mode |
+| Cursor | Full support via config |
+| Cline | Full support |
+| Red Hat OpenShift AI | Platform-level support |
 
 **Key MCP Servers:**
 | Server | Purpose |
 |--------|---------|
-| Context7 | Version-specific documentation |
+| MongoDB | Performance advisor, vector search, local clusters |
+| Google Maps | Geospatial data, weather, routing |
+| BigQuery | Enterprise data warehousing |
+| GKE | Kubernetes container orchestration |
 | GitHub | Code search, automation |
 | GitLab | CI/CD integration |
+| Context7 | Version-specific documentation |
 | Semgrep | Static analysis |
 | Sentry | Error tracking |
 | Datadog | Observability |
-| PostgreSQL | Database access |
+
+**Protocol Versions:**
+| Version | Key Features |
+|---------|-------------|
+| 2025-03-26 | OAuth 2.1, Streamable HTTP, tool annotations, audio support |
+| 2025-06-18 | Structured tool output, Resource Indicators (RFC 8707), elicitation |
+| 2025-11-25 | Tasks abstraction for long-running operations |
+
+**Security Concerns:**
+- **43% of analyzed MCP servers** vulnerable to command injection
+- Multiple CVEs with CVSS scores 7.3-9.6 affecting 437K+ installations
+- Key threats: prompt injection, tool poisoning, parasitic toolchain attacks
+- Security depends entirely on implementation (not enforced at protocol level)
+
+**Security Best Practices:**
+- OAuth 2.1 for HTTP-based transports
+- Input validation and sanitization
+- Least privilege access (zero-trust)
+- Short-lived, minimally scoped tokens
+- Server vetting and approved lists
+- Deploy security tools (MCPTox, MindGuard)
 
 ## Multi-Agent Orchestration
 
