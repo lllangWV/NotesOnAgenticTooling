@@ -2,6 +2,30 @@
 
 Last updated: 2026-01-14
 
+## Completed Questions (Iteration 6)
+
+### Context Window Optimization
+- [x] Detailed comparison of indexing vs on-demand context approaches
+- [x] Best practices for CLAUDE.md and similar context files
+- [x] How to optimize token usage for large codebases (>100k LOC)?
+
+See [context-optimization.md](context-optimization.md) for comprehensive findings including:
+- Cursor, Copilot, Sourcegraph Cody, Windsurf, Continue.dev, Refact.ai indexing approaches
+- Claude Code and Aider on-demand approaches
+- Embedding models comparison with dimensions and context limits
+- CLAUDE.md anti-patterns and +10.87% accuracy improvements
+- Token optimization with 50-90% cost savings via prompt caching
+
+## Completed Questions (Iteration 4)
+
+### Enterprise Adoption
+- [x] What compliance certifications do tools have (SOC 2, HIPAA)?
+- [x] How do enterprise deployment models differ?
+- [x] What are best practices for team-wide adoption?
+- [x] How do organizations handle API key management at scale?
+
+See [enterprise-adoption.md](enterprise-adoption.md) for comprehensive findings.
+
 ## Completed Questions (Iteration 3)
 
 ### Performance & Benchmarks
@@ -56,20 +80,7 @@ See [performance-benchmarks.md](performance-benchmarks.md) for comprehensive fin
 - [x] What customization/extensibility options exist?
 - [x] How do tools integrate with development workflows (git, CI/CD)?
 
-## Priority 1: Deep Dive Questions
-
-### Enterprise Adoption
-- [ ] What compliance certifications do tools have (SOC 2, HIPAA)?
-- [ ] How do enterprise deployment models differ?
-- [ ] What are best practices for team-wide adoption?
-- [ ] How do organizations handle API key management at scale?
-
-### Context Window Optimization
-- [ ] Detailed comparison of indexing vs on-demand context approaches
-- [ ] Best practices for CLAUDE.md and similar context files
-- [ ] How to optimize token usage for large codebases (>100k LOC)?
-
-## Priority 2: Integration Questions
+## Priority 1: Integration Questions
 
 ### MCP Ecosystem
 - [ ] What are the most valuable MCP servers for coding workflows?
@@ -83,7 +94,7 @@ See [performance-benchmarks.md](performance-benchmarks.md) for comprehensive fin
 - [ ] What are effective multi-agent coordination patterns?
 - [ ] How to handle AI-generated code in regulated industries?
 
-## Priority 3: Future Trends
+## Priority 2: Future Trends
 
 ### Emerging Capabilities
 - [ ] What's the roadmap for multi-modal context (images, diagrams)?

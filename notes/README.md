@@ -18,6 +18,8 @@ This directory contains comprehensive research notes on AI-powered coding assist
 | [mcp-protocol.md](mcp-protocol.md) | Model Context Protocol specification and adoption |
 | [cross-cutting-themes.md](cross-cutting-themes.md) | Common patterns, security, extensibility across all tools |
 | [performance-benchmarks.md](performance-benchmarks.md) | SWE-bench results, token costs, latency, refactoring capabilities |
+| [enterprise-adoption.md](enterprise-adoption.md) | Compliance, deployment models, team adoption, API key management |
+| [context-optimization.md](context-optimization.md) | Indexing vs on-demand context, CLAUDE.md best practices, token optimization |
 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) | Tracked open questions for future research |
 
 ## Key Findings
@@ -65,6 +67,24 @@ Based on comprehensive benchmark analysis (see [performance-benchmarks.md](perfo
 - **18x improvement** in AI coding capability from 2023 to 2025
 
 ## Changes
+
+### Iteration 6 (2026-01-14)
+- Enhanced [context-optimization.md](context-optimization.md): Major update with detailed technical specifications:
+  - Added Continue.dev and Refact.ai hybrid indexing approaches
+  - Expanded embedding models table with dimensions, parameters, and context limits
+  - Added retrieval algorithms comparison (BM25, cosine similarity, hybrid, cross-encoder reranking)
+  - Enhanced CLAUDE.md section with anti-patterns, performance impact data (+10.87% accuracy), and instruction limits
+  - Updated context window sizes for 2025-2026 (Claude 4.5 1M tokens, GPT-5, Gemini 3 Pro 2M)
+  - Added prompt caching and semantic caching cost optimization strategies
+  - Expanded sources with 30+ new references
+
+### Iteration 5 (2026-01-14)
+- Added [context-optimization.md](context-optimization.md): Comprehensive context window optimization guide covering indexing vs on-demand approaches (Cursor, Copilot, Claude Code, Aider, Sourcegraph Cody), CLAUDE.md and context file best practices across tools, token optimization strategies for large codebases (>100k LOC), cost optimization techniques, and file organization recommendations
+- Updated [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md): Marked Context Window Optimization questions as completed
+
+### Iteration 4 (2026-01-14)
+- Added [enterprise-adoption.md](enterprise-adoption.md): Comprehensive enterprise adoption guide covering compliance certifications (SOC 2, HIPAA, FedRAMP, ISO 27001), deployment models (SaaS, VPC, on-premises, air-gapped), team adoption best practices, governance frameworks, and API key management at scale
+- Updated [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md): Marked Enterprise Adoption questions as completed
 
 ### Iteration 3 (2026-01-14)
 - Added [performance-benchmarks.md](performance-benchmarks.md): Comprehensive benchmark analysis covering SWE-bench, token consumption, latency, and multi-file refactoring
