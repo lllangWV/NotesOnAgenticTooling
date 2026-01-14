@@ -2,6 +2,16 @@
 
 Last updated: 2026-01-14
 
+## Completed Questions (Iteration 3)
+
+### Performance & Benchmarks
+- [x] How do tools compare on SWE-bench and similar benchmarks?
+- [x] What is the actual token consumption for typical workflows?
+- [x] How do response times compare across tools?
+- [x] What is the success rate for complex multi-file refactors?
+
+See [performance-benchmarks.md](performance-benchmarks.md) for comprehensive findings.
+
 ## Completed Questions (Iteration 2)
 
 ### Claude Code
@@ -46,13 +56,7 @@ Last updated: 2026-01-14
 - [x] What customization/extensibility options exist?
 - [x] How do tools integrate with development workflows (git, CI/CD)?
 
-## Priority 1: Deep Dive Questions (New)
-
-### Performance & Benchmarks
-- [ ] How do tools compare on SWE-bench and similar benchmarks?
-- [ ] What is the actual token consumption for typical workflows?
-- [ ] How do response times compare across tools?
-- [ ] What is the success rate for complex multi-file refactors?
+## Priority 1: Deep Dive Questions
 
 ### Enterprise Adoption
 - [ ] What compliance certifications do tools have (SOC 2, HIPAA)?

@@ -17,6 +17,7 @@ This directory contains comprehensive research notes on AI-powered coding assist
 | [cli-tools.md](cli-tools.md) | Open-source CLI tools: OpenCode, Aider, Cline, Goose, Continue, OpenHands |
 | [mcp-protocol.md](mcp-protocol.md) | Model Context Protocol specification and adoption |
 | [cross-cutting-themes.md](cross-cutting-themes.md) | Common patterns, security, extensibility across all tools |
+| [performance-benchmarks.md](performance-benchmarks.md) | SWE-bench results, token costs, latency, refactoring capabilities |
 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) | Tracked open questions for future research |
 
 ## Key Findings
@@ -53,7 +54,21 @@ Model Context Protocol has become the industry standard for AI tool integration:
 - **10,000+** active servers
 - Supported by: Claude, ChatGPT, Cursor, Copilot, Gemini
 
+### Performance Highlights
+
+Based on comprehensive benchmark analysis (see [performance-benchmarks.md](performance-benchmarks.md)):
+
+- **SWE-bench Verified**: Claude Opus 4.5 leads at 80.9%, first to exceed 80%
+- **Refactoring**: Claude 3.5 Sonnet achieves 92.1% on complex refactoring tasks
+- **Token Costs**: Range from $0.01/task (Aider) to $200/month (Claude Max)
+- **Response Times**: 110ms (Copilot inline) to 2s+ (Claude Sonnet TTFT)
+- **18x improvement** in AI coding capability from 2023 to 2025
+
 ## Changes
+
+### Iteration 3 (2026-01-14)
+- Added [performance-benchmarks.md](performance-benchmarks.md): Comprehensive benchmark analysis covering SWE-bench, token consumption, latency, and multi-file refactoring
+- Updated [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md): Marked Performance & Benchmarks questions as completed
 
 ### Iteration 2 (2026-01-14)
 - Added [claude-code.md](claude-code.md): Comprehensive Claude Code specification
