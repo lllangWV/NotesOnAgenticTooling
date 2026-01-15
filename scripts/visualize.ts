@@ -14,6 +14,30 @@ const colors = {
   cyan: '\x1b[36m',
 };
 
+// Claude's max context window in tokens
+const MAX_CONTEXT_TOKENS = 200_000;
+
+interface TokenUsage {
+  input_tokens: number;
+  cache_creation_input_tokens: number;
+  cache_read_input_tokens: number;
+  output_tokens: number;
+}
+
+function formatContextPercentage(usage: TokenUsage): string {
+  const contextTokens = usage.input_tokens + usage.cache_creation_input_tokens + usage.cache_read_input_tokens;
+  const percentage = (contextTokens / MAX_CONTEXT_TOKENS) * 100;
+  let color = colors.green;
+  if (percentage > 80) {
+    color = colors.red;
+  } else if (percentage > 50) {
+    color = colors.yellow;
+  }
+
+  const breakdown = `in:${usage.input_tokens.toLocaleString()} cache_create:${usage.cache_creation_input_tokens.toLocaleString()} cache_read:${usage.cache_read_input_tokens.toLocaleString()} out:${usage.output_tokens.toLocaleString()}`;
+  return `${color}📊 Context: ${percentage.toFixed(1)}%${colors.reset} ${colors.dim}(${contextTokens.toLocaleString()}/${MAX_CONTEXT_TOKENS.toLocaleString()} tokens | ${breakdown})${colors.reset}`;
+}
+
 function getTypeColor(type: string): string {
   switch (type) {
     case 'system':
@@ -333,6 +357,12 @@ async function processStream() {
   const pendingResults = new Map(); // Store results waiting for their tool calls
   let lastLine = null; // Track the last line to detect final message
   let isLastAssistantMessage = false;
+  let latestUsage: TokenUsage = {
+    input_tokens: 0,
+    cache_creation_input_tokens: 0,
+    cache_read_input_tokens: 0,
+    output_tokens: 0,
+  };
 
   rl.on('line', (line) => {
     if (line.trim()) {
@@ -342,6 +372,17 @@ async function processStream() {
 
       try {
         const json = JSON.parse(line);
+
+        // Update token counts from any message with usage info
+        const usageSource = json.message?.usage || json.usage;
+        if (usageSource) {
+          latestUsage = {
+            input_tokens: usageSource.input_tokens || 0,
+            cache_creation_input_tokens: usageSource.cache_creation_input_tokens || 0,
+            cache_read_input_tokens: usageSource.cache_read_input_tokens || 0,
+            output_tokens: usageSource.output_tokens || 0,
+          };
+        }
 
         // Check if this is a tool call
         if (json.type === 'assistant' && json.message?.content?.[0]?.id) {
@@ -362,7 +403,8 @@ async function processStream() {
               json,
               result.toolResult,
               result.timestamp,
-              timestamp
+              timestamp,
+              latestUsage
             );
             pendingResults.delete(toolId);
           } else {
@@ -384,7 +426,8 @@ async function processStream() {
               stored.toolCall,
               json,
               stored.timestamp,
-              timestamp
+              timestamp,
+              latestUsage
             );
             toolCalls.delete(toolId);
           } else {
@@ -398,6 +441,9 @@ async function processStream() {
         // Check if this is the result message and display full content
         else if (json.type === 'result' && json.result) {
           process.stdout.write(`${timestamp + formatConcise(json)}\n\n`);
+          if (latestUsage.input_tokens > 0 || latestUsage.cache_read_input_tokens > 0 || latestUsage.cache_creation_input_tokens > 0) {
+            process.stdout.write(`${formatContextPercentage(latestUsage)}\n\n`);
+          }
           process.stdout.write(`${colors.bright}${colors.green}=== Final Result ===${colors.reset}\n\n`);
           process.stdout.write(`${json.result}\n`);
         }
@@ -426,11 +472,12 @@ async function processStream() {
 }
 
 function displayToolCallWithResult(
-  toolCall: any,
+  _toolCall: any,
   toolCallJson: any,
   toolResultJson: any,
   callTimestamp: string,
-  resultTimestamp: string
+  resultTimestamp: string,
+  usage: TokenUsage | null = null
 ) {
   // Display the tool call header
   process.stdout.write(`${callTimestamp}${formatConcise(toolCallJson)}\n`);
@@ -473,6 +520,11 @@ function displayToolCallWithResult(
         `\n    ⎿  ${colors.dim}... ${lines.length - linesToShow} more lines${colors.reset}`
       );
     }
+  }
+
+  // Display context percentage after each tool action
+  if (usage && (usage.input_tokens > 0 || usage.cache_read_input_tokens > 0 || usage.cache_creation_input_tokens > 0)) {
+    process.stdout.write(`\n  ${formatContextPercentage(usage)}`);
   }
 
   process.stdout.write('\n\n');

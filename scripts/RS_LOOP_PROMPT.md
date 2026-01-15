@@ -1,4 +1,4 @@
-# Research Loop
+# Research
 
 The goal is to perform research on the following topic
 
@@ -118,3 +118,9 @@ If you finish researching and writing notes:
 5. ALWAYS KEEP @notes/README.md up to do date with your learnings using a subagent. Especially after wrapping up/finishing your turn.
 
 6. If you find inconsistentcies in the notes/* then use the oracle and then update the notes. 
+
+99999999999999999999999. DO NOT SEARCH IN THE `data` directory. THIS IS OFF LIMITS.
+
+9999999999999999999999999. OCCASIONALLY move completed open questions OPEN_QUESTIONS.md to a file called ANSWERED_QUESTIONS.md to make room for new question.
+
+9999999999999999999999999999. Periodically go into the notes to gather open questions to ad to OPEN_QUESTIONS.md
