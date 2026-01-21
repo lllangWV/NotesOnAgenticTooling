@@ -1,0 +1,306 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\usepackage{csquotes}
+
+% Bibliography
+\addbibresource{references.bib}
+
+% Colors
+\definecolor{primaryblue}{RGB}{0,82,147}
+\definecolor{successgreen}{RGB}{40,167,69}
+\definecolor{warningyellow}{RGB}{255,193,7}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AI Coding Assistant Investment Analysis}
+\lhead{Confidential}
+\rfoot{Page \thepage}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries\color{primaryblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Custom commands
+\newcommand{\recommendation}[1]{\textcolor{successgreen}{\textbf{#1}}}
+\newcommand{\cost}[1]{\textbf{\$#1}}
+
+\begin{document}
+
+% Title
+\begin{center}
+{\LARGE\bfseries AI Coding Assistant Investment Analysis}\\[0.3cm]
+{\large Business Case: Claude Teams + Cursor Teams}\\[0.2cm]
+{\normalsize Prepared for Project Leadership | January 2026}
+\end{center}
+
+\vspace{0.5cm}
+
+%===============================================================================
+% PAGE 1: EXECUTIVE SUMMARY
+%===============================================================================
+
+\section{Executive Summary}
+
+\subsection{Issue}
+Should our 10-person development team invest in AI coding assistants by purchasing \textbf{Claude Teams} (\$25--150/user/month) and \textbf{Cursor Teams} (\$40/user/month) to accelerate development velocity and improve code quality?
+
+\subsection{Facts \& Assumptions}
+\begin{itemize}[noitemsep]
+    \item Claude Code achieved \textbf{72.5\% on SWE-bench}, demonstrating industry-leading autonomous coding capability \cite{claude2025agentic}
+    \item Claude Teams Standard costs \textbf{\$25/user/month} (annual) or \$30 monthly; Premium with Claude Code costs \textbf{\$150/user/month} \cite{claude2025pricing}
+    \item Cursor Teams costs \textbf{\$40/user/month} with SAML/SSO, usage analytics, and $\sim$500 agent requests per user \cite{cursor2025pricing}
+    \item Render.com benchmark scored Cursor \textbf{8.0/10} overall vs. Claude Code's \textbf{6.8/10} for practical development tasks \cite{render2025benchmark}
+    \item Both tools have documented security vulnerabilities but maintain rapid patch cycles \cite{tenable2025cursorvuln}
+    \item The same underlying model performs \textbf{10 percentage points differently} depending on harness architecture \cite{claude2025agentic}
+    \item METR study found experts on familiar codebases were 19\% slower with AI, though benefits vary by experience level \cite{metr2025productivity}
+    \item Rate limiting remains a friction point---users report hitting weekly caps even on premium plans \cite{github2025ratelimit}
+    \item \textbf{75\% of developers} report feeling more productive with AI tools \cite{getdx2025metrstudy}
+    \item Cursor supports multiple models (Claude, GPT, Gemini); Claude Code is Anthropic-only \cite{builderio2025comparison}
+    \item Claude Teams includes SSO, domain capture, enterprise search, and Microsoft 365/Slack connectors \cite{claude2025pricing}
+\end{itemize}
+
+\subsection{Evaluation Criteria}
+\begin{enumerate}[noitemsep]
+    \item \textbf{Agentic Capability}: Can the tool autonomously plan, execute, and verify multi-step coding tasks?
+    \item \textbf{Team Productivity}: Does it improve daily workflow for developers of varying experience levels?
+    \item \textbf{Enterprise Readiness}: Does it offer SSO, usage analytics, and centralized management?
+    \item \textbf{Cost Efficiency}: Is the value delivered proportional to the investment?
+    \item \textbf{Integration Flexibility}: Can it work alongside existing toolchains and complement other tools?
+\end{enumerate}
+
+\subsection{Alternatives}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+\toprule
+\textbf{Option} & \textbf{Description} & \textbf{Annual Cost} \\
+\midrule
+Status Quo & Continue without AI coding assistants & \$0 \\
+\textbf{Budget Friendly} & Cursor Teams (assuming 10 users) + Claude Max (2 power users) & $\sim$\$7,200 \\
+\textbf{Best (Recommended)} & Claude Teams (assuming 10 users) + Cursor Teams (assuming 10 users) & $\sim$\$22,800 \\
+\textbf{Slightly Cheaper Premium} & Claude Code Teams (assuming 10 users) + Cursor Pro (assuming 10 users) & $\sim$\$20,400 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Analysis}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Criteria} & \textbf{Status Quo} & \textbf{Alternative} & \textbf{Best} & \textbf{Premium} \\
+\midrule
+Agentic Capability & $\star$ & $\star\star\star\star$ & $\star\star\star\star\star$ & $\star\star\star\star\star$ \\
+Team Productivity & $\star$ & $\star\star\star\star$ & $\star\star\star\star\star$ & $\star\star\star\star\star$ \\
+Enterprise Readiness & N/A & $\star\star\star$ & $\star\star\star\star\star$ & $\star\star\star\star\star$ \\
+Cost Efficiency & $\star\star\star\star\star$ & $\star\star\star\star$ & $\star\star\star$ & $\star\star$ \\
+Integration Flexibility & $\star\star$ & $\star\star\star\star\star$ & $\star\star\star\star\star$ & $\star\star\star\star\star$ \\
+\midrule
+\textbf{Total} & \textbf{9} & \textbf{17} & \textbf{20} & \textbf{22} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Recommendation}
+
+\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+\textbf{Best:} Implement \textbf{Claude Teams Standard} (\$25/user/month) + \textbf{Cursor Teams} (\$40/user/month) for all 10 developers, providing comprehensive enterprise features, SSO, and complementary IDE + CLI paradigms.\\[0.2cm]
+\textbf{Alternative:} Cursor Teams for all developers + Claude Max (\$100/month) for 1--2 senior engineers handling complex autonomous tasks.\\[0.2cm]
+\textbf{Premium:} \textbf{Claude Code Teams} (\$150/user/month) + \textbf{Cursor Pro} (\$20/user/month) for full Claude Code access across the team, with IDE autocomplete benefits via Cursor Pro. Claude Code can be used directly within Cursor as the agent.
+}}
+
+\newpage
+%===============================================================================
+% PAGE 2: LANDSCAPE OVERVIEW
+%===============================================================================
+
+\section{AI Coding Assistant Landscape}
+
+The AI coding assistant market has bifurcated into two distinct paradigms: \textbf{IDE-integrated tools} that enhance moment-to-moment coding within visual editors, and \textbf{CLI-based agents} that operate autonomously in the terminal with deeper system access \cite{builderio2025comparison}.
+
+\subsection{Key Terminology}
+
+\textbf{Agentic Mode} enables AI to perform consecutive actions autonomously---reading files, executing commands, running tests, and iterating until a goal is achieved \cite{cursor2025agent}.
+
+\textbf{Plan Mode} forces the AI to create a structured implementation plan before writing code. Claude Code activates this via Shift+Tab twice; Cursor offers ``Ask Mode'' for read-only strategic planning \cite{qodo2025comparison}.
+
+\textbf{Subagents} are specialized AI assistants with isolated context windows that a primary agent can delegate tasks to. Claude Code offers three built-in subagents plus custom agent creation via the \texttt{/agents} command \cite{claude2025subagents}.
+
+\textbf{Skills} are modular capability packages that AI loads dynamically based on task requirements. Claude Code's Skills system enables procedural knowledge for tasks like spreadsheet generation \cite{claude2025skills}.
+
+\textbf{The Harness Concept} explains why identical models feel different across tools. Anthropic's engineering demonstrates that harness design yields a \textbf{10 percentage point accuracy difference} on benchmarks---the async loop structure, context management, and tool invocation order dramatically impact practical capability \cite{claude2025agentic}.
+
+\subsection{Two Paradigms Compared}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+\textbf{Aspect} & \textbf{IDE-Based (Cursor)} & \textbf{CLI-Based (Claude Code)} \\
+\midrule
+Core Philosophy & ``You drive, AI assists'' & ``AI drives, you supervise'' \\
+Primary Interface & VS Code fork with integrated AI & Terminal with optional IDE integration \\
+Strength & Real-time autocomplete, visual diffs & Autonomous multi-file operations \\
+Weakness & IDE lock-in, less agentic depth & Steeper learning curve, no inline editing \\
+Best For & Daily coding, quick iterations & Complex refactoring, CI/CD automation \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Feature Comparison Across All Tools}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Feature} & \textbf{Claude Code} & \textbf{Cursor} & \textbf{Copilot} & \textbf{Codex} & \textbf{Amazon Q} & \textbf{Gemini CLI} \\
+\midrule
+Interface & CLI & IDE & IDE Ext. & CLI+IDE & IDE+CLI & CLI \\
+Free Tier & Limited & Trial & 50 req & No & 50/mo & 1K/day \\
+Agentic Mode & Deep & Yes & Yes & Yes & Yes & Yes \\
+Plan Mode & Yes & Ask Mode & Via Chat & Yes & /dev & Yes \\
+Autocomplete & No & Excellent & Good & Via IDE & Yes & Via IDE \\
+Multi-Model & No & Yes & Limited & No & Claude & No \\
+Subagents & Yes & No & No & No & No & No \\
+Skills System & Yes & Rules & No & No & No & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Pricing Landscape}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Tool} & \textbf{Individual} & \textbf{Teams/Business} & \textbf{Enterprise/Max} \\
+\midrule
+Claude & \$20/mo (Pro) & \$25--150/user/mo & Custom \\
+Cursor & \$20/mo (Pro) & \$40/user/mo & \$200/mo (Ultra) \\
+GitHub Copilot & \$10/mo & \$19/user/mo & \$39/user/mo \\
+Amazon Q & \$19/user/mo & N/A & Custom \\
+OpenAI Codex & \$20/mo (ChatGPT+) & \$25--30/user/mo & Custom \\
+Gemini Code Assist & \$19/mo & Custom & Custom \\
+\bottomrule
+\end{tabular}
+\caption{Pricing comparison across major AI coding assistants \cite{claude2025pricing,cursor2025pricing,userjot2025copilotpricing,superblocks2025amazonq}}
+\end{table}
+
+\newpage
+%===============================================================================
+% PAGE 3: DEEP DIVE COMPARISON
+%===============================================================================
+
+\section{Deep Dive: Claude Code vs. Cursor}
+
+\subsection{Claude Code Strengths}
+
+Claude Code's terminal-native architecture enables a fundamentally different relationship with AI. Rather than enhancing your typing, it functions as a \textbf{junior developer you can delegate entire tasks to} \cite{buildcamp2025claudecode}. 
+
+The \textbf{subagents system} provides genuine task delegation---the general-purpose subagent handles complex multi-step work with full tool access, while the explore subagent enables rapid read-only codebase searches using the faster Haiku model \cite{claude2025subagents}.
+
+\textbf{CLAUDE.md configuration} offers hierarchical context management, with instructions treated as authoritative system rules receiving higher adherence than regular prompts \cite{claudelog2025claudemd}.
+
+\subsection{Claude Code Weaknesses}
+
+Rate limiting remains problematic---even Max 20x subscribers (\$200/month) report hitting weekly caps during intensive development \cite{github2025ratelimit,ainativedev2025ratelimits}. The tool works exclusively with Anthropic models---no GPT or Gemini fallback options.
+
+\subsection{Cursor Strengths}
+
+Cursor's \textbf{tab autocomplete} represents the tool's most compelling feature for everyday use. Unlike simple code completion, it suggests multi-line edits spanning multiple files \cite{apidog2025cursortab,cursor2025features}.
+
+The \textbf{agent mode evolution} (Cursor 2.0) enables up to 25 consecutive tool calls with web search, terminal execution, and multi-file modifications. The native Composer model completes most turns under 30 seconds \cite{cursor2025twopointzero}.
+
+Cursor's \textbf{model flexibility} proves strategically valuable---teams can access Claude, GPT, and Gemini models through a single interface \cite{builderio2025comparison}.
+
+\subsection{Cursor Weaknesses}
+
+IDE lock-in (must use Cursor application rather than standard VS Code) and less flexibility for headless or remote server workflows where Claude Code's CLI-native approach excels \cite{qodo2025comparison}.
+
+\subsection{Why They Complement Each Other}
+
+The two tools address different segments of the development experience \cite{arsturn2025workflow}:
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Cursor handles the 80\%}---quick function completions, learning new APIs, visual diff review, and interactive coding sessions
+    \item \textbf{Claude Code handles the 20\%}---large-scale refactoring, CI/CD automation, architectural planning, and extended autonomous execution
+\end{itemize}
+
+As one developer summarized: ``Claude Code builds the house, Cursor paints the walls'' \cite{builderio2025comparison}.
+
+\subsection{Security Considerations}
+
+Both tools have documented vulnerabilities requiring ongoing vigilance. Claude Code's CVEs include path restriction bypass (CVE-2025-54794) and command injection (CVE-2025-54795)---all patched within days of disclosure. Cursor's vulnerabilities include MCP auto-start RCE (CVE-2025-54135)---also patched promptly \cite{tenable2025cursorvuln}.
+
+The broader pattern: \textbf{MCP (Model Context Protocol) represents the primary attack surface} across all agentic tools. Both Anthropic (SOC 2 Type II) and Cursor demonstrate responsive security practices.
+
+\subsection{Investment Summary}
+
+For a 10-person development team:
+
+\vspace{0.3cm}
+\noindent\textbf{Best Recommendation:}
+\begin{itemize}[noitemsep]
+    \item Claude Teams Standard: \$150 $\times$ 10 users $\times$ 12 months = \textbf{\$18,000/year}
+    \item Cursor Teams: \$40 $\times$ 10 users $\times$ 12 months = \textbf{\$4,800/year}
+    \item \textbf{Total: $\sim$\$22,800/year}
+\end{itemize}
+
+This provides enterprise SSO, centralized administration, Microsoft 365/Slack connectors via Claude Teams, plus comprehensive IDE-integrated AI assistance via Cursor Teams.
+
+\vspace{0.3cm}
+\noindent\textbf{Budget Friendly Recommendation:}
+\begin{itemize}[noitemsep]
+    \item Cursor Teams: \$40 $\times$ 10 users $\times$ 12 months = \textbf{\$4,800/year}
+    \item Claude Max 5x: \$100 $\times$ 2 power users $\times$ 12 months = \textbf{\$2,400/year}
+    \item \textbf{Total: $\sim$\$7,200/year}
+\end{itemize}
+
+This provides IDE-integrated assistance for all developers while enabling 1--2 senior engineers to leverage Claude Code's superior autonomous capabilities. Note: lacks SSO and centralized admin of the Teams plan.
+
+\vspace{0.3cm}
+\noindent\textbf{Slightly Cheaper Premium Option:}
+\begin{itemize}[noitemsep]
+    \item Claude Code Teams: \$150 $\times$ 10 users $\times$ 12 months = \textbf{\$18,000/year}
+    \item Cursor Pro: \$20 $\times$ 10 users $\times$ 12 months = \textbf{\$2,400/year}
+    \item \textbf{Total: $\sim$\$20,400/year}
+\end{itemize}
+
+This gives every developer full Claude Code access for autonomous agentic tasks, combined with Cursor Pro's IDE benefits (autocomplete, limited Cursor agents). Claude Code can also be invoked directly within Cursor as the primary agent, providing the best of both worlds. Note: Cursor Pro lacks the enterprise SSO and admin analytics of Cursor Teams.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.3cm}
+\small
+\textit{The tools complement rather than compete---Cursor for the flow-state coding experience, Claude for delegated autonomous tasks that would otherwise require significant engineering time.}
+
+\newpage
+%===============================================================================
+% REFERENCES
+%===============================================================================
+
+\printbibliography[title={References}]
+
+\end{document}
