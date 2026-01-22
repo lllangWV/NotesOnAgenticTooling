@@ -433,6 +433,39 @@ For most teams, SaaS subscriptions are simpler and more cost-effective until mon
 | Cursor Teams (10 users @ \$40) | \$400 | \$4,800 |
 | **Total** | **\$1,900** | **\$22,800** |
 
+**Scenario D: Claude Teams + Cursor Teams (Collaborative) ,  \$5,400/year**
+
+| Component | Monthly | Annual |
+|-----------|---------|--------|
+| Claude Teams standard (4 users @ \$25) | \$100 | \$1,200 |
+| Claude Teams premium (1 user @ \$150) | \$150 | \$1,800 |
+| Cursor Teams (5 users @ \$40) | \$200 | \$2,400 |
+| **Total** | **\$450** | **\$5,400** |
+
+This configuration provides full team collaboration features on both platforms. The single premium Claude seat enables extended thinking and higher usage limits for the team's most demanding workloads, while standard seats handle routine AI assistance.
+
+**Scenario E: Claude Teams + Cursor Pro (Flexible Individual) ,  \$4,200/year**
+
+| Component | Monthly | Annual |
+|-----------|---------|--------|
+| Claude Teams standard (4 users @ \$25) | \$100 | \$1,200 |
+| Claude Teams premium (1 user @ \$150) | \$150 | \$1,800 |
+| Cursor Pro (5 users @ \$20) | \$100 | \$1,200 |
+| **Total** | **\$350** | **\$4,200** |
+
+This configuration trades Cursor's team features (pooled credits, shared rules, SSO) for lower cost. Individual Cursor Pro subscriptions provide the same AI capabilities without administrative overhead or centralized billing. Best suited for teams that don't require IDE-level collaboration features.
+
+**Scenario F: Claude Teams Heavy Premium ,  \$4,500-6,900/year**
+
+| Component | Monthly | Annual |
+|-----------|---------|--------|
+| Claude Teams premium (2 users @ \$150) | \$300 | \$3,600 |
+| Claude Teams standard (3 users @ \$25) | \$75 | \$900 |
+| Cursor Teams (optional, 5 users @ \$40) | \$0-200 | \$0-2,400 |
+| **Total** | **\$375-575** | **\$4,500-6,900** |
+
+This configuration prioritizes Claude's premium capabilities over IDE tooling. Two premium seats provide redundancy for complex autonomous work and extended thinking sessions, ensuring availability when one user is at capacity. Add Cursor Teams if IDE enhancement proves valuable during evaluation.
+
 ### 9.2 Return on Investment Analysis
 
 At a fully-loaded developer cost of \$150,000/year:
